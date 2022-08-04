@@ -17,10 +17,6 @@ app.use(express.json());
 // Middleware
 app.use(express.static("./public"));
 
-app.listen(Port, () => {
-  console.log(`API server now on port ${PORT}`);
-});
-
 // GET request
 app.get("/api/notes", (req, res) => {
   readFileAsync("./db/db.json", "utf8").then(function (data) {
@@ -61,4 +57,8 @@ app.delete("/api/notes/:id", (req, res) => {
       writeFileAsync("./db/db.json", JSON.stringify(notes));
       res.send("Yup we just did that..");
     });
+});
+
+app.listen(PORT, () => {
+  console.log(`API server now on port ${PORT}`);
 });
