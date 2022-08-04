@@ -1,5 +1,9 @@
+// Dependencies
 const router = require("express").Router();
 const { notes } = require("../../db/db");
+
+// This will allow us to use our create and delete functions created
+// in the lib/noteHandler.js file in our POST and DELETE calls.
 const { createNewNote, deleteNote } = require("../../lib/noteHandler.js");
 
 // GET /api/notes should read the db.json file and return all saved notes as JSON.
