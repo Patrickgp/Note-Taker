@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const { notes } = require("../../db/db.json");
+const { notes } = require("../../db/db");
 const { createNewNote, deleteNote } = require("../../lib/noteHandler.js");
 
 // GET /api/notes should read the db.json file and return all saved notes as JSON.
@@ -14,7 +14,9 @@ router.get("/notes", (req, res) => {
 // (look into npm packages that could do this for you).
 // POST Request
 router.post("/notes", (req, res) => {
-  res.json("Hello");
+  req.body.id = notes.length.toString();
+  let note = createNewNote(req.body, notes);
+  res.json(notes);
 });
 
 // DELETE /api/notes/:id should receive a query parameter containing the
