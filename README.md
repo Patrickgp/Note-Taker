@@ -1,7 +1,4 @@
-# Note Taker Starter Code
-
-
-  # Amanuensis
+# Amanuensis
 
   ##  
 
